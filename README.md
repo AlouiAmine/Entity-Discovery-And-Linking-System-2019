@@ -16,7 +16,7 @@ The mention types are organizes in a hierarchy (e.g., actor as a subtype of arti
 
 # MODEL:
 
-
+![curl output image](/img/model.jpg)
 
 # DATA:
 
