@@ -26,7 +26,7 @@ download the dataset:
 
 # Data preprocess:
 
- Data preprocessing may take some time, so it's better to run it in backgroung using the following command:
+ Data preprocessing may take some time, so it's better to run it in background using the following command:
  
  `nohup python3 -u preprocess_data.py > log_file.log & tail -f log_file.log`
  
@@ -36,8 +36,40 @@ download the dataset:
  
  test.txt: used to test bert-base-cased pretrained model and will be splitted then into (train and test) to train and test the classifier model.
  
-# fine-Tune BERT-NER
+# Fine-Tune BERT-NER
 
-`nohup python3 -u run_ner.py --data_dir=data/ --bert_model=bert-base-cased --task_name=ner --output_dir=out/ --max_seq_length=128 --num_train_epochs 5  --do_eval --do_train --warmup_proportion=0.4 > bert_large.log & tail -f bert_large.log`
+`nohup python3 -u run_ner.py --data_dir=data/ --bert_model=bert-base-cased --task_name=ner --output_dir=out/ --max_seq_length=128 --num_train_epochs 5  --do_eval --do_train --warmup_proportion=0.4 > bert_log.log & tail -f bert_log.log`
+
+# Get BERT-Embedding 
+
+`nohup python3 -u get_bert_embedding.py > embedding_log.log & tail -f embedding_log.log`
+
+# Training the classifier
+
+
+# Inference
+
+
+```from bert import Ner
+
+model = Ner("out3/")
+
+output,_ = model.predict("Barack Obama went to Sephora to buy parfume ",ok=True)
+
+print(output)
+[('Barack', {'tag': 'B-person/political_figure'}), 
+('Obama', {'tag': 'I-person/political_figure'}), 
+('went', {'tag': 'O'}), 
+('to', {'tag': 'O'}), 
+('Sephora', {'tag': 'B-organization/company'}), 
+('to', {'tag': 'O'}), 
+('buy', {'tag': 'O'}),
+('parfume', {'tag': 'B-other/product'})]
+
+
+```
+
+
+
 
 
