@@ -52,19 +52,20 @@ download the dataset:
 
 ```from bert import Ner
 
-model = Ner("out3/")
+model = Ner("out/")
 
 output,_ = model.predict("Barack Obama went to Sephora to buy parfume ",ok=True)
 
 print(output)
-[('Barack', {'tag': 'B-person/political_figure'}), 
-('Obama', {'tag': 'I-person/political_figure'}), 
-('went', {'tag': 'O'}), 
-('to', {'tag': 'O'}), 
-('Sephora', {'tag': 'B-organization/company'}), 
-('to', {'tag': 'O'}), 
-('buy', {'tag': 'O'}),
-('parfume', {'tag': 'B-other/product'})]
+
+# [('Barack', {'tag': 'B-person/political_figure'}), 
+# ('Obama', {'tag': 'I-person/political_figure'}), 
+# ('went', {'tag': 'O'}), 
+# ('to', {'tag': 'O'}), 
+# ('Sephora', {'tag': 'B-organization/company'}), 
+# ('to', {'tag': 'O'}), 
+# ('buy', {'tag': 'O'}),
+# ('parfume', {'tag': 'B-other/product'})]
 
 
 ```
