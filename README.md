@@ -14,6 +14,10 @@ The mention types are organizes in a hierarchy (e.g., actor as a subtype of arti
 -  `python3`
 - `pip3 install -r requirements.txt`
 
+# MODEL:
+
+
+
 # DATA:
 
 download the dataset:
@@ -25,3 +29,15 @@ download the dataset:
  Data preprocessing may take some time, so it's better to run it in backgroung using the following command:
  
  `nohup python3 -u preprocess_data.py > log_file.log & tail -f log_file.log`
+ 
+ As a result, we get 2 files: train.txt, test.txt
+ 
+ train.txt: used to fine tune bert-base-cased pretrained model
+ 
+ test.txt: used to test bert-base-cased pretrained model and will be splitted then into (train and test) to train and test the classifier model.
+ 
+# fine-Tune BERT-NER
+
+`nohup python3 -u run_ner.py --data_dir=data/ --bert_model=bert-base-cased --task_name=ner --output_dir=out/ --max_seq_length=128 --num_train_epochs 5  --do_eval --do_train --warmup_proportion=0.4 > bert_large.log & tail -f bert_large.log`
+
+
