@@ -14,7 +14,8 @@ The mention types are organizes in a hierarchy (e.g., actor as a subtype of arti
 -  `python3`
 - `pip3 install -r requirements.txt`
 
-#DATA
+# DATA:
+
 download the dataset:
 
 `wget http://www.cl.ecei.tohoku.ac.jp/~shimaoka/corpus.zip`
