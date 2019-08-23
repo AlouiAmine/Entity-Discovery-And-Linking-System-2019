@@ -1,6 +1,6 @@
 from bert import Ner
 
-model = Ner("out3/")
+model = Ner("out/")
 def readfile(filename):
     '''
     read file
@@ -36,6 +36,6 @@ def readfile(filename):
 
     return data, tag
 
-listtext,tags=readfile('ontonotes_cnll_data/gen_data/test.txt')
-model.get_bert_embedding(listtext,tags,file_name='test3_embedding.json')
+listtext,tags=readfile('test.txt')
+model.get_bert_embedding(listtext,tags,file_name='embedding.json')
 
