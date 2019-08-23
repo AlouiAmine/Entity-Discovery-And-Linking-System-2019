@@ -135,7 +135,7 @@ class Ner:
         return input_ids,input_mask,segment_ids,valid_positions,tokens
    #added function 
     
-    def get_bert_embedding(self, textlist,tags,file_name,model_dir='out3/',model_config="model_config.json"):
+    def get_bert_embedding(self, textlist,tags,file_name,model_dir='out/',model_config="model_config.json"):
 
         
         model_config = os.path.join(model_dir,model_config)
@@ -205,7 +205,7 @@ class Ner:
         segment_ids = torch.tensor([segment_ids],dtype=torch.long)
         valid_ids = torch.tensor([valid_ids],dtype=torch.long)
 
-        model_dir='out3/'
+        model_dir='out/'
         model_config="model_config.json"
 
         model_config = os.path.join(model_dir,model_config)
