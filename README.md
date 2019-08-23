@@ -36,20 +36,20 @@ download the dataset:
  
  test.txt: used to test bert-base-cased pretrained model and will be splitted then into (train and test) to train and test the classifier model.
  
-# Fine-Tune BERT-NER
+# Fine-Tune BERT-NER:
  
 `nohup python3 -u run_ner.py --data_dir=data/ --bert_model=bert-base-cased --task_name=ner --output_dir=out/ --max_seq_length=128 --num_train_epochs 5  --do_eval --do_train --warmup_proportion=0.4 > bert_log.log & tail -f bert_log.log`
 
 the implementation is based on https://github.com/kamalkraj/BERT-NER
 
-# Genertaing the Classifier training data 
+# Generating the Classifier training data :
 
 `nohup python3 -u get_bert_embedding.py > embedding_log.log & tail -f embedding_log.log`
 
-# Training the classifier
+# Training the classifier:
 
 
-# Inference
+# Inference:
 
 
 ```from bert import Ner
