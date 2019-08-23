@@ -42,7 +42,7 @@ download the dataset:
 
 the implementation is based on https://github.com/kamalkraj/BERT-NER
 
-# Get BERT-Embedding 
+# Genertaing the Classifier training data 
 
 `nohup python3 -u get_bert_embedding.py > embedding_log.log & tail -f embedding_log.log`
 
