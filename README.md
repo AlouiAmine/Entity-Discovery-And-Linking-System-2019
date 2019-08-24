@@ -60,16 +60,23 @@ output,_ = model.predict("Barack Obama went to Sephora to buy parfume ",ok=True)
 
 print(output)
 
+# bert output :
+
+# ['B-person', 'I-person', 'O', 'O', 'B-person', 'O', 'B-location', 'O', 'O', 'B-location']
+
 # [
 # ('Barack', {'tag': 'B-person/political_figure'}), 
 # ('Obama', {'tag': 'I-person/political_figure'}), 
+# ('the', {'tag': 'O'}), 
+# ('former', {'tag': 'O'}), 
+# ('president', {'tag': 'B-person/political_figure'}), 
+# ('of', {'tag': 'O'}), 
+# ('US', {'tag': 'B-location/country'}), 
 # ('went', {'tag': 'O'}), 
 # ('to', {'tag': 'O'}), 
-# ('Sephora', {'tag': 'B-organization/company'}), 
-# ('to', {'tag': 'O'}), 
-# ('buy', {'tag': 'O'}),
-# ('parfume', {'tag': 'B-other/product'})
+# ('France', {'tag': 'B-location/city'})
 # ]
+
 
 
 ```
