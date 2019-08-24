@@ -3,4 +3,5 @@ seqeval==0.0.5
 torch==1.0.1.post2
 tqdm==4.31.1
 nltk==3.4
+joblib==0.13.2
 keras
