@@ -56,7 +56,8 @@ you can pass this step and use the deep learning classifier in the model folder.
 # Inference:
 
 
-```from bert import Ner
+```
+from bert import Ner
 
 model = Ner("out/")
 
