@@ -51,6 +51,7 @@ the implementation is based on https://github.com/kamalkraj/BERT-NER
 
 `python3 classifiers.py --data 'embedding.json' --iter 100 --batch_size 1024 --verbose 1`
 
+you can pass this step and use the deep learning classifier in the model folder. 
 
 # Inference:
 
