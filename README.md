@@ -56,7 +56,7 @@ the implementation is based on https://github.com/kamalkraj/BERT-NER
 
 model = Ner("out/")
 
-output,_ = model.predict("Barack Obama went to Sephora to buy parfume ",ok=True)
+output,_ = model.predict("Barack Obama the former president of US went to France",ok=True)
 
 print(output)
 
