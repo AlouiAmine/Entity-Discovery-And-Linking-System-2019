@@ -49,6 +49,9 @@ the implementation is based on https://github.com/kamalkraj/BERT-NER
 # Training the classifier:
 
 
+`python3 classifiers.py --data 'embedding.json' --iter 100 --batch_size 1024 --verbose 1`
+
+
 # Inference:
 
 
