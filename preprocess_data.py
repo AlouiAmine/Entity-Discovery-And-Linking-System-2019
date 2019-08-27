@@ -4,6 +4,7 @@ import collections
 from collections import Counter
 from nltk import word_tokenize
 from sklearn.model_selection import train_test_split
+import argparse
 
 import time as tme
 
@@ -103,7 +104,7 @@ def convert(new_data):
     dfObj = pd.DataFrame(zippedList, columns = ['sentence_id' , 'token', 'tag']) 
     return dfObj
 
-def convert_data_to_connl_with_splitting_data(df):    
+def convert_data_to_connl_with_splitting_data(df,percentage=0.6):    
     
     df=df.sort_values(by='sentence')
     new_data=[]
@@ -120,7 +121,7 @@ def convert_data_to_connl_with_splitting_data(df):
             row=[line.sentence,[(line.start,line.end),line.one_mention]]
     new_data.append(row)    
     
-    X_train, X_test = train_test_split(new_data, test_size=0.6)
+    X_train, X_test = train_test_split(new_data, test_size=percentage)
 #     X_test, X_dev = train_test_split(X_test, test_size=0.33)
     train=convert(X_train)
     test=convert(X_test)
@@ -130,14 +131,19 @@ def convert_data_to_connl_with_splitting_data(df):
     return train,test
 
 
+parser = argparse.ArgumentParser()
+parser.add_argument('--data',type=str, help='the data to process', required=True)
+parser.add_argument('--percentage', help='the percentage to test Bert model and train the classifier', required=True)
+args=parser.parse_args()
+
 
 print('start preprocessing...')
 start_time = tme.time()
 
-df_ontonotes_train=parse_data('OntoNotes/train.txt')
+df_ontonotes_train=parse_data(args.data)
 df_ontonotes_train=clear_mention(df_ontonotes_train)
 
-cnLL_df_ontonotes_train_,cnLL_df_ontonotes_test_=convert_data_to_connl_with_splitting_data(df_ontonotes_train)
+cnLL_df_ontonotes_train_,cnLL_df_ontonotes_test_=convert_data_to_connl_with_splitting_data(df_ontonotes_train,args.percentage)
 cnLL_df_ontonotes_train_[['token','tag']].to_csv('train.txt', header=False,index=None,sep='\t')
 cnLL_df_ontonotes_test_[['token','tag']].to_csv('test.txt', header=False,index=None,sep='\t')
 
