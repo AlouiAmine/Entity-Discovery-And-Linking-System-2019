@@ -28,7 +28,7 @@ download the dataset:
 
  Data preprocessing may take some time, so it's better to run it in background using the following command:
  
- `nohup python3 -u preprocess_data.py > log_file.log & tail -f log_file.log`
+ `nohup python3 -u preprocess_data.py --data 'OntoNotes/train.txt' --percentage 0.6 > log_file.log & tail -f log_file.log`
  
  As a result, we get 2 files: train.txt, test.txt
  
